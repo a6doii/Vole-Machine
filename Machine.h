@@ -15,8 +15,6 @@ class Machine
 private:
     void Get_New_Program( ); // it takes a new file from the user 
     void Display_info( ) ;// it prints the register and the memory
-    // void Set_Start_Address( ) ;
-    // void Load_all_Instructions ( ) ;//  (fetch) it takes all the instructions from the file to our vector of string
     void Load_all_Instructions_toMemory( );
     void Load_all_Instructions_StepByStep();
     void Reset_Machine( );
