@@ -6,12 +6,14 @@
  * Section: 23
  * Date: 12 Oct 2023
  * */
-#include "Machine.cpp"
+// created by Abdo Tarek Alsaid 11/13/2023
 
+#include <bits/stdc++.h>
+#include "Machine.cpp"
 using namespace std;
 
-int main() {
+int main (){
     Machine machine;
     machine.play();
-
 }
+
