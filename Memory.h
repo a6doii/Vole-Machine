@@ -1,3 +1,11 @@
+/*File: A2_Task3_B_20220253_20221096_20220878.h
+ *Purpose: Assignment 2 OOP
+ * Author1: Kirolos Adel Nan             20220253
+ * Author2: Abdelrahman Tarek Alsaid     20221096
+ * Author3: Al-Hussain Abdo Mohamed      20220878
+ * Section: 23
+ * Date: 12 Oct 2023
+ * */
 #ifndef Memory_H
 #define Memory_H
 
@@ -5,19 +13,24 @@
 
 using namespace std;
 
-class Memory{
+class Memory {
 private:
-    
-    int Hexa_to_decimal(string hexa);
-    string decimal_to_hexa(int decimal);
 
-public : 
+    int Hex_to_decimal(const string &hex);
+
+    string decimal_to_hex(int decimal);
+
+public :
     Memory();
-    map<string,string >memory; 
-    void set_memory( string start , vector<string>lines);
-    void Display_memory(); 
-    char indicies [16] = {'0','1', '2', '3', '4', '5','6','7','8','9','a','b','c','d','e','f'} ;
-}; 
+
+    map<string, string> memory;
+
+    void set_memory(string start, const vector<string> &lines);
+
+    void Display_memory();
+
+    char indices[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+};
 
 
 #endif

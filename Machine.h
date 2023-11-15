@@ -1,3 +1,11 @@
+/*File: A2_Task3_B_20220253_20221096_20220878.h
+ *Purpose: Assignment 2 OOP
+ * Author1: Kirolos Adel Nan             20220253
+ * Author2: Abdelrahman Tarek Alsaid     20221096
+ * Author3: Al-Hussain Abdo Mohamed      20220878
+ * Section: 23
+ * Date: 12 Oct 2023
+ * */
 #ifndef Machine_H
 #define Machine_H
 #include "Memory.h"
@@ -10,14 +18,14 @@ private:
     // void Set_Start_Address( ) ;
     // void Load_all_Instructions ( ) ;//  (fetch) it takes all the instructions from the file to our vector of string
     void Load_all_Instructions_toMemory( );
-    void Load_all_Instructions_StepBySteo();
+    void Load_all_Instructions_StepByStep();
     void Reset_Machine( );
     void menu( );
 public:
     int choice = 0;
     string name_file ;
     vector<string> lines;
-    string start_address = "";
+    string start_address;
     bool step = false;
     void play ();
     Machine();
