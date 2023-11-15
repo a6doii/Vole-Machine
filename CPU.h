@@ -22,7 +22,7 @@ private :
 public:
     CPU();
 
-    int programCounter = 0; // ( address   )   A0
+    int programCounter = 0; 
     string IR = "0000";
     int cont = 0;
     bool stp = false;
@@ -38,7 +38,6 @@ public:
 
     void Fetch(const vector<string> &lines, const string &start_address, map<string, string> memory, const string &line,
                bool step); // give (IR) and (PC) values;
-    void Valid_instruction();
 
     void Decode();
 
