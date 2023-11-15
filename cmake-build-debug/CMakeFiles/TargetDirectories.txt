@@ -1,0 +1,3 @@
+D:/Second Year Kirolos/OOP/Vole-Machine/cmake-build-debug/CMakeFiles/Vole_Machine.dir
+D:/Second Year Kirolos/OOP/Vole-Machine/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Second Year Kirolos/OOP/Vole-Machine/cmake-build-debug/CMakeFiles/rebuild_cache.dir
