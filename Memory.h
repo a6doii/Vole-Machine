@@ -21,7 +21,7 @@ private:
     static string decimal_to_hex(int decimal);
     map<string, string> memory;
 
-    void set_memory(string start, const vector<string> &lines);
+    void set_memory(string start ,  const vector<string>& lines , map<string , string > &lines_step , bool step );
 
     void Display_memory();
 

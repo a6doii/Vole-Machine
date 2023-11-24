@@ -16,6 +16,7 @@ using namespace std;
 class CPU {
 private :
     friend class Machine;
+
     static int Hex_to_decimal(const string &hex);
 
     static string decimal_to_hex(int decimal);
@@ -34,13 +35,14 @@ private :
 
     static string binaryToHexadecimal(const bitset<8> &binaryNumber);
 
-    void Fetch(const vector<string> &lines, const string &start_address, map<string, string> memory, const string &line,
+    void Fetch(const map<string, string> &lines_step,const string &start_adress, map<string, string> memory,const string &line,
                bool step); // give (IR) and (PC) values;
 
     void Decode();
 
-    void Execute_theInstruction(char op, map<string, string> &memory); // call instructions and memory
+    void excuteInstruction(char op, map<string,string> &memory ); // call instructions and memory
     void Display_CPU();
+
 public:
     CPU();
 

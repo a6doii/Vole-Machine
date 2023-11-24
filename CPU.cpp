@@ -57,7 +57,7 @@ string CPU::binaryToHexadecimal(const bitset<8> &binaryNumber) {
     return hexStream.str();
 }
 
-void CPU::Execute_theInstruction(char op, map<string, string> &memory) {
+void CPU::excuteInstruction(char op , map<string,string> &memory ) {
     string memory_address = x + y;
     if (op == '1') {
         Register[register_address] = memory[memory_address];
@@ -93,11 +93,10 @@ void CPU::Execute_theInstruction(char op, map<string, string> &memory) {
     }
 }
 
-void
-CPU::Fetch(const vector<string> &lines, const string &start_address, map<string, string> memory, const string &line,
-           bool step) {
+void CPU:: Fetch(const map<string, string> &lines_step,const string &start_adress, map<string, string> memory,const string &line,
+                     bool step){
     if (!step) {
-        int start_address_int = Hex_to_decimal(start_address);
+        int start_address_int = Hex_to_decimal(start_adress);
         programCounter = start_address_int;
         while (true) { // we iterate over the instructions, and we fetch and decode and execute on each step line by line
             // IR = lines[i]; // ORXY;  // 1234 
@@ -123,14 +122,14 @@ CPU::Fetch(const vector<string> &lines, const string &start_address, map<string,
             }
             programCounter += 1;
             Decode();
-            Execute_theInstruction(operation, memory); // operation 1
+            excuteInstruction(operation, memory); // opeartion 1
 
         }
     } else {
         stp = true;
         IR = line;
         if (cont == 0)
-            programCounter = Hex_to_decimal(start_address);
+            programCounter = Hex_to_decimal(start_adress);
         cont++;
     }
 }
@@ -157,4 +156,3 @@ void CPU::Display_CPU() {
         programCounter += 2;
     }
 }
-

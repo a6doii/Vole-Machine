@@ -24,13 +24,12 @@ private:
     int choice = 0;
     string name_file ;
     vector<string> lines;
+    map<string ,string >lines_step;
     string start_address;
     bool step = false;
 public:
     void play ();
     Machine();
-
-    
 };
 
 

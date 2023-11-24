@@ -59,42 +59,38 @@ void Machine::Load_all_Instructions_toMemory() { // fetch
         lines.push_back(line);
     }
     // fetch ===> instructions ==> memory
-    meMory.set_memory(start_address, lines); // (1)
+    meMory.set_memory (start_address, lines , lines_step , step); // (1)
     meMory.Display_memory();
-    cpu.Fetch(lines, start_address, meMory.memory, line, step);
+    step=false;
+    cpu.Fetch( lines_step ,start_address , meMory.memory , line , step);
     cpu.Display_CPU();
 }
 
 void Machine::Load_all_Instructions_StepByStep() {
 
     cout << "Enter the start address: "; // start address 
-    cin >> start_address;
+    cin >> start_address ;
     ifstream output;
     output.open(name_file);
-    string line; // A0 ==> A1 ==> A9 ==> B0
-    while (true) {
+    string line ; // A0 ==> A1 ==> A9 ==> B0
+    while ( getline(output , line )){
+        lines.push_back(line);
+    }
+    step = true;
+    meMory.set_memory (start_address, lines , lines_step , step); // this for initializing the lines_step with the same way as memory
+    while ( true){
         cout << "Press Fetch : ";
         string fetch;
         cin >> fetch;
-        getline(output, line); // take line from our file;
-        // fetch ===> instructions ==> memory
-        // meMory.set_memory (start_address, lines); // (1)
-        // meMory.Display_memory();
-        if (line == "C000") {
-            cout << "program is halted";
-            exit(0);
-        }
-        cout << line << endl;
-        step = true;
-        cpu.Fetch(lines, start_address, meMory.memory, line, step);
-        cout << "Press  Decode " << endl;
-        string decode;
+        cpu.Fetch( lines_step ,start_address , meMory.memory , line , step);
+        cout << "Press  Decode "<<endl;
+        string decode ;
         cin >> decode;
         cpu.Decode();
-        cout << "Press Execute " << endl;
+        cout <<"Press Execute " <<endl ;
         string execute;
         cin >> execute;
-        cpu.Execute_theInstruction(cpu.operation, meMory.memory);
+        cpu.excuteInstruction(cpu.operation, meMory.memory);
         meMory.Display_memory();
         cpu.Display_CPU();
     }

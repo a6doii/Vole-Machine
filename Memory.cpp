@@ -10,10 +10,10 @@
 
 Memory::Memory() {
     for (char ch: this->indices) {
-        for (char indices: this->indices) {
+        for (char index: this->indices) {
             string s;
             s += ch;
-            s += indices;
+            s += index;
             memory[s] = "00";
         }
     }
@@ -30,7 +30,7 @@ int Memory::Hex_to_decimal(const string &hex) {
     return decimalValue;
 }
 
-void Memory::set_memory(string start, const vector<string> &lines) { // ( A0 ) // 0F ==>  15 ==> F ==> 0F
+void Memory::set_memory(string start ,  const vector<string>& lines , map<string , string > &lines_step , bool step  ) { // ( A0 ) // 0F ==>  15 ==> F ==> 0F
     // A0 A1 A2 A3 /// 1234 , 3456
     // 12 34 34 56 
     // first put value inside this address (start) in our memory
@@ -61,15 +61,15 @@ void Memory::set_memory(string start, const vector<string> &lines) { // ( A0 ) /
 
 void Memory::Display_memory() {
     cout << "  ";
-    for (char indices: this->indices) {
-        cout << (isalpha(indices) ? (char) toupper(indices) : indices) << "   "; // to print it with capital letter
+    for (char index: this->indices) {
+        cout << (isalpha(index) ? (char) toupper(index) : index) << "   "; // to print it with capital letter
     }
     cout << endl;
-    for (char indices: this->indices) {
-        cout << (isalpha(indices) ? (char) toupper(indices) : indices) << " ";
+    for (char index: this->indices) {
+        cout << (isalpha(index) ? (char) toupper(index) : index) << " ";
         for (char j: this->indices) {
-            char ch = indices;
-            string s; // this is a concatenation between the two indices to get the specific cell (A0) (FA)
+            char ch = index;
+            string s; // this is a concatenation between the two index to get the specific cell (A0) (FA)
             s += ch;
             s += j;
             cout << memory[s] << "  ";
