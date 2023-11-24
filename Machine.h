@@ -17,18 +17,19 @@ private:
     void Display_info( ) ;// it prints the register and the memory
     void Load_all_Instructions_toMemory( );
     void Load_all_Instructions_StepByStep();
-    void Reset_Machine( );
+    static void Reset_Machine( );
     void menu( );
-public:
+    CPU cpu;
+    Memory meMory;
     int choice = 0;
     string name_file ;
     vector<string> lines;
     string start_address;
     bool step = false;
+public:
     void play ();
     Machine();
-    CPU cpu;
-    Memory meMory;
+
     
 };
 

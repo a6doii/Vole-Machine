@@ -15,14 +15,12 @@ using namespace std;
 
 class CPU {
 private :
-    int Hex_to_decimal(const string &hex);
+    friend class Machine;
+    static int Hex_to_decimal(const string &hex);
 
-    string decimal_to_hex(int decimal);
+    static string decimal_to_hex(int decimal);
 
-public:
-    CPU();
-
-    int programCounter = 0; 
+    int programCounter = 0;
     string IR = "0000";
     int cont = 0;
     bool stp = false;
@@ -30,11 +28,11 @@ public:
     char register_address;
     string x, y;
     map<char, string> Register; // 1A34 ==> A register[ int (A) ]
-    bitset<8> addTwoNumbers(const bitset<8> &num1, const bitset<8> &num2);
+    static bitset<8> addTwoNumbers(const bitset<8> &num1, const bitset<8> &num2);
 
-    bitset<8> decimalToBinary(int decimalNumber);
+    static bitset<8> decimalToBinary(int decimalNumber);
 
-    string binaryToHexadecimal(const bitset<8> &binaryNumber);
+    static string binaryToHexadecimal(const bitset<8> &binaryNumber);
 
     void Fetch(const vector<string> &lines, const string &start_address, map<string, string> memory, const string &line,
                bool step); // give (IR) and (PC) values;
@@ -43,6 +41,10 @@ public:
 
     void Execute_theInstruction(char op, map<string, string> &memory); // call instructions and memory
     void Display_CPU();
+public:
+    CPU();
+
+
 };
 
 #endif

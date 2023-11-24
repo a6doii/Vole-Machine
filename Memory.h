@@ -15,14 +15,10 @@ using namespace std;
 
 class Memory {
 private:
+    friend class Machine;
+    static int Hex_to_decimal(const string &hex);
 
-    int Hex_to_decimal(const string &hex);
-
-    string decimal_to_hex(int decimal);
-
-public :
-    Memory();
-
+    static string decimal_to_hex(int decimal);
     map<string, string> memory;
 
     void set_memory(string start, const vector<string> &lines);
@@ -30,6 +26,9 @@ public :
     void Display_memory();
 
     char indices[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+public :
+    Memory();
+
 };
 
 

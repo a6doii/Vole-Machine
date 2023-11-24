@@ -48,7 +48,7 @@ bitset<8> CPU::addTwoNumbers(const bitset<8> &num1, const bitset<8> &num2) {
 }
 
 bitset<8> CPU::decimalToBinary(int decimalNumber) {
-    return bitset<8>(decimalNumber);
+    return (bitset<8>)decimalNumber;
 }
 
 string CPU::binaryToHexadecimal(const bitset<8> &binaryNumber) {
@@ -106,13 +106,13 @@ CPU::Fetch(const vector<string> &lines, const string &start_address, map<string,
             string value = decimal_to_hex(
                     programCounter); // to handle zero if the hex is only one number because I want it to be two numbers 1 no I want it to be 01 to access the memory
             if (value.size() == 1)
-                value = "0" + value;
+                value.insert(0,"0");
             string programCounter_str = value; //00
             first_half_instructions = memory[programCounter_str]; // 00
             programCounter += 1;//01
             value = decimal_to_hex(programCounter);
             if (value.size() == 1)
-                value = "0" + value;
+                value.insert(0,"0");
             programCounter_str = value;
             second_half_instructions = memory[programCounter_str];
             IR = first_half_instructions + second_half_instructions;
